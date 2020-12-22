@@ -479,7 +479,7 @@ where
 
 impl<I> From<na::Point2<I>> for BigVec2<AdaptiveInt>
 where
-    I: ::std::convert::Into<i64> + na::Scalar,
+    I: ::std::convert::Into<i64> + na::Scalar + Copy,
 {
     fn from(v: na::Point2<I>) -> Self {
         BigVec2::new(

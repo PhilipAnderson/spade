@@ -155,7 +155,7 @@ impl<T> PointNExtensions for T where T: PointN {}
 pub trait TwoDimensional: PointN {}
 
 impl<S: SpadeNum + cg::BaseNum> TwoDimensional for cg::Point2<S> {}
-impl<S: SpadeNum + na::Scalar> TwoDimensional for na::Point2<S> {}
+impl<S: SpadeNum + na::Scalar + Copy> TwoDimensional for na::Point2<S> {}
 impl<S: SpadeNum + Copy> TwoDimensional for [S; 2] {}
 
 /// A three dimensional Point.
@@ -178,7 +178,7 @@ pub trait ThreeDimensional: PointN {
 
 impl<S: SpadeNum + cg::BaseNum> ThreeDimensional for cg::Point3<S> {}
 
-impl<S: SpadeNum + na::Scalar> ThreeDimensional for na::Point3<S> {}
+impl<S: SpadeNum + na::Scalar + Copy> ThreeDimensional for na::Point3<S> {}
 
 impl<S: SpadeNum + Copy> ThreeDimensional for [S; 3] {}
 
@@ -275,7 +275,7 @@ impl<S: SpadeNum + cg::BaseNum> PointN for cg::Point3<S> {
     }
 }
 
-impl<S: SpadeNum + na::Scalar> PointN for na::Point2<S> {
+impl<S: SpadeNum + na::Scalar + Copy> PointN for na::Point2<S> {
     type Scalar = S;
 
     fn dimensions() -> usize {
@@ -294,7 +294,7 @@ impl<S: SpadeNum + na::Scalar> PointN for na::Point2<S> {
     }
 }
 
-impl<S: SpadeNum + na::Scalar> PointN for na::Point3<S> {
+impl<S: SpadeNum + na::Scalar + Copy> PointN for na::Point3<S> {
     type Scalar = S;
 
     fn dimensions() -> usize {
@@ -313,7 +313,7 @@ impl<S: SpadeNum + na::Scalar> PointN for na::Point3<S> {
     }
 }
 
-impl<S: SpadeNum + na::Scalar + na::Scalar> PointN for na::Point4<S> {
+impl<S: SpadeNum + na::Scalar + Copy> PointN for na::Point4<S> {
     type Scalar = S;
 
     fn dimensions() -> usize {
